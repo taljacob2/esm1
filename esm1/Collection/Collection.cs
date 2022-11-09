@@ -9,7 +9,7 @@ namespace esm1.Collection
     public class Collection<T> where T : IComparable<T>
     {
 
-        private List<T> _list = new List<T>();
+        private readonly List<T> _list = new();
 
         /// <summary>
         /// Adds the object which is given as input.
