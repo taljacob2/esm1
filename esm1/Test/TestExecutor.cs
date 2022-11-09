@@ -9,6 +9,10 @@ namespace esm1.Test
 {
     public class TestExecutor
     {
+
+        /// <summary>
+        /// Expected result: -1
+        /// </summary>
         public static int Test1()
         {
             IPerson person = new PersonImpl()
@@ -30,6 +34,9 @@ namespace esm1.Test
             return person.CompareTo(person2);
         }
 
+        /// <summary>
+        /// Expected result: 0
+        /// </summary>
         public static int Test2()
         {
             IPerson person = new PersonImpl()
@@ -51,6 +58,9 @@ namespace esm1.Test
             return person.CompareTo(person2);
         }
 
+        /// <summary>
+        /// Expected result: 0
+        /// </summary>
         public static int Test3()
         {
             IPerson person = new PersonImpl()
@@ -72,6 +82,9 @@ namespace esm1.Test
             return person.CompareTo(person2);
         }
 
+        /// <summary>
+        /// Expected result: -1
+        /// </summary>
         public static int Test4()
         {
             IPerson person = new PersonImpl()
