@@ -1,18 +1,6 @@
-﻿using esm1.Person;
+﻿using esm1.Test;
 
-Console.WriteLine("Hello, World!");
-
-IPerson person = new PersonImpl() {
-    Id = 1,
-    FirstName = "John",
-    LastName = "Doe",
-    DateOfBirth = new DateTime(1990, 12, 26)
-};
-IPerson person2 = new PersonImpl() {
-    Id = 1,
-    FirstName = "Tal",
-    LastName = "Jacob",
-    DateOfBirth = new DateTime(1997, 12, 29)
-};
-
-Console.WriteLine(person.CompareTo(person2));
+Console.WriteLine(TestExecutor.Test1());
+Console.WriteLine(TestExecutor.Test2());
+Console.WriteLine(TestExecutor.Test3());
+Console.WriteLine(TestExecutor.Test4());
