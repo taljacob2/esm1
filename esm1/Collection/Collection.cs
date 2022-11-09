@@ -9,7 +9,7 @@ namespace esm1.Collection
     public class Collection<T> where T : IComparable<T>
     {
 
-        //private MinimumHeap<T> minimumHeap;
+        private List<T> _list = new List<T>();
 
         /// <summary>
         /// Adds the object which is given as input.
@@ -18,7 +18,23 @@ namespace esm1.Collection
         /// <param name="obj"></param>
         public void Add(T obj)
         {
+            if (_list.Count == 0)
+            {
+                _list.Add(obj);
+                return;
+            }
 
+            int comparisonResult = _list[0].CompareTo(obj);
+            if (comparisonResult <= 0)
+            {
+                _list.Add(obj);
+                return;
+            }
+            else
+            {
+                _list.Add(_list[0]);
+                _list[0] = obj;
+            }
         }
 
         /// <summary>
