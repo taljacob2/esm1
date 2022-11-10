@@ -64,5 +64,13 @@ namespace esm1.Collection
         {
 
         }
+
+        /// <summary>
+        /// Prints all collection to Console via <see cref="Console.WriteLine"/>.
+        /// </summary>
+        public void Print()
+        {
+            _list.ForEach(item => Console.WriteLine(item));
+        }
     }
 }
