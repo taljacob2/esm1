@@ -137,12 +137,6 @@ namespace esm1.Collection
             _observerList.Remove(observer);
         }
 
-        /// <summary>
-        /// Publishes a notification to subscriber objects upon any Add/Remove.
-        /// </summary>
-        /// <seealso cref="Add(T)"/>
-        /// <seealso cref="Remove"/>
-        /// <seealso cref="ISubject.Publish"/>
         public void Publish()
         {
             foreach (IObserver observer in _observerList)
