@@ -5,7 +5,6 @@ namespace esm1.Collection
 {
     public class Collection<T> : IEnumerable<T> where T : IComparable<T>
     {
-
         private readonly List<T> _list = new();
 
         /// <summary>
@@ -60,15 +59,6 @@ namespace esm1.Collection
         public void Publish()
         {
 
-        }
-
-        // TODO: Maybe remove.
-        /// <summary>
-        /// Prints all collection to Console via <see cref="Console.WriteLine"/>.
-        /// </summary>
-        public void Print()
-        {
-            _list.ForEach(item => Console.WriteLine(item));
         }
 
         public override string ToString()
