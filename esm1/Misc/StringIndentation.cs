@@ -2,6 +2,11 @@
 
 namespace esm1.Misc
 {
+
+    /// <summary>
+    /// A class that helps building strings with indentation.
+    /// </summary>
+    /// <seealso cref="ObjectExtensions"/>
     public static class StringIndentation
     {
         public static void NewLine(StringBuilder stringBuilder,

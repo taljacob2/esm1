@@ -4,10 +4,30 @@ using System.Collections;
 
 namespace esm1.Misc
 {
+
+    /// <summary>
+    /// A class that adds miscellaneous extension methods to objects.
+    /// </summary>
     public static class ObjectExtensions
     {
+
+        /// <summary>
+        /// Represents the current indentation level when printing.
+        /// </summary>
         private static int indentationLevel;
 
+        /// <summary>
+        /// Enables any <see cref="object"/> to invoke this method, to
+        /// "ToString" all its <see cref="PropertyInfo"/>s.
+        /// </summary>
+        /// <param name="obj">
+        /// Any <see cref="object"/> that has <see cref="PropertyInfo"/>s to
+        /// print.
+        /// </param>
+        /// <returns>
+        /// A formatted <see cref="string"/> that resembles all the
+        /// <see cref="PropertyInfo"/>s of the given <see cref="object"/>.
+        /// </returns>
         public static string ToStringExtension(this object obj)
         {
             StringBuilder stringBuilder = new();
@@ -50,6 +70,15 @@ namespace esm1.Misc
             return stringBuilder.ToString();
         }
 
+        /// <summary>
+        /// Enables any <see cref="IEnumerable"/> to invoke this method, to
+        /// "ToString" all its elements.
+        /// </summary>
+        /// <param name="enumerable">Any <see cref="IEnumerable"/>.</param>
+        /// <returns>
+        /// A formatted <see cref="string"/> that resembles all the
+        /// elements of the given <see cref="IEnumerable"/>.
+        /// </returns>
         public static string ToStringEnumerableExtension(this IEnumerable enumerable)
         {
             StringBuilder stringBuilder = new();
