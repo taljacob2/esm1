@@ -19,6 +19,17 @@ namespace esm1.Misc
         /// <summary>
         /// Enables any <see cref="object"/> to invoke this method, to
         /// "ToString" all its <see cref="PropertyInfo"/>s.
+        /// <para>
+        /// So now you could override the <see cref="object.ToString"/> method with:
+        /// <example>
+        /// <code>
+        /// public override string ToString()
+        /// {
+        ///     return this.ToStringExtension();
+        /// }
+        /// </code>
+        /// </example>
+        /// </para>
         /// </summary>
         /// <param name="obj">
         /// Any <see cref="object"/> that has <see cref="PropertyInfo"/>s to
@@ -73,6 +84,17 @@ namespace esm1.Misc
         /// <summary>
         /// Enables any <see cref="IEnumerable"/> to invoke this method, to
         /// "ToString" all its elements.
+        /// <para>
+        /// So now you could override the <see cref="object.ToString"/> method with:
+        /// <example>
+        /// <code>
+        /// public override string ToString()
+        /// {
+        ///     return this.ToStringEnumerableExtension();
+        /// }
+        /// </code>
+        /// </example>
+        /// </para>
         /// </summary>
         /// <param name="enumerable">Any <see cref="IEnumerable"/>.</param>
         /// <returns>
