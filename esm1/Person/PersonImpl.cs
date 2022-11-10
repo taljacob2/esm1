@@ -1,4 +1,6 @@
-﻿namespace esm1.Person
+﻿using esm1.Misc;
+
+namespace esm1.Person
 {
     public class PersonImpl : IPerson
     {
@@ -21,6 +23,11 @@
             }
 
             return returnValue;
+        }
+
+        public override string ToString()
+        {
+            return this.ToStringExtension();
         }
     }
 }

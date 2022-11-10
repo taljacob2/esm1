@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using esm1.Misc;
+using System.Collections;
 
 namespace esm1.Collection
 {
-    public class Collection<T> where T : IComparable<T>
+    public class Collection<T> : IEnumerable<T> where T : IComparable<T>
     {
 
         private readonly List<T> _list = new();
@@ -65,12 +62,28 @@ namespace esm1.Collection
 
         }
 
+        // TODO: Maybe remove.
         /// <summary>
         /// Prints all collection to Console via <see cref="Console.WriteLine"/>.
         /// </summary>
         public void Print()
         {
             _list.ForEach(item => Console.WriteLine(item));
+        }
+
+        public override string ToString()
+        {
+            return this.ToStringEnumerableExtension();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>)_list).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)_list).GetEnumerator();
         }
     }
 }
