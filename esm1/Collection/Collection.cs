@@ -4,6 +4,27 @@ using System.Collections;
 
 namespace esm1.Collection
 {
+
+    /// <summary>
+    /// <para>
+    /// A generic collection that sorts its elements upon <see cref="Add(T)"/>.
+    /// Thus, its elements must implement the <see cref="IComparable{T}"/>
+    /// interface.
+    /// </para>
+    /// <para>
+    /// Note that this collection implements the <see cref="ISubject"/>
+    /// interface. So, it can also serve as a publisher, to notify a list of
+    /// <see cref="IObserver"/>s about an update. To publish a notification,
+    /// invoke the <see cref="Publish"/> method.
+    /// We invoked the <see cref="Publish"/> method after the executions of
+    /// <see cref="Add(T)"/> / <see cref="Remove"/>, to notify all the
+    /// <see cref="IObserver"/>s that were <see cref="Attach(IObserver)"/>ed
+    /// to <see cref="_observerList"/> about an update.
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T">
+    /// Any object type to serve as the type of element in the collection.
+    /// </typeparam>
     public class Collection<T> : IEnumerable<T>, ISubject where T : IComparable<T>
     {
 
@@ -15,7 +36,7 @@ namespace esm1.Collection
         /// <summary>
         /// List of subscribers to this instance.
         /// </summary>
-        private readonly List<IObserver> _observerMenuItems = new();
+        private readonly List<IObserver> _observerList = new();
 
         /// <summary>
         /// The last object that was interacting with this collection.
@@ -108,12 +129,12 @@ namespace esm1.Collection
 
         public void Attach(IObserver observer)
         {
-            _observerMenuItems.Add(observer);
+            _observerList.Add(observer);
         }
 
         public void Detach(IObserver observer)
         {
-            _observerMenuItems.Remove(observer);
+            _observerList.Remove(observer);
         }
 
         /// <summary>
@@ -124,7 +145,7 @@ namespace esm1.Collection
         /// <seealso cref="ISubject.Publish"/>
         public void Publish()
         {
-            foreach (IObserver observer in _observerMenuItems)
+            foreach (IObserver observer in _observerList)
             {
                 observer.Update(this);
             }
