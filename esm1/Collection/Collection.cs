@@ -44,9 +44,15 @@ namespace esm1.Collection
         /// Removes the object with the maximum value and returns it.
         /// This operation is performed in WC time complexity of O(1).
         /// </summary>
-        public T Remove()
+        /// <returns>
+        /// The last item in the collection. While the collection is sorted,
+        /// it means this item has the maximum value between all items.
+        /// </returns>
+        public T? Remove()
         {
-            return default(T);
+            T? lastItem = _list[^1];
+            _list.RemoveAt(_list.Count - 1);
+            return lastItem;
         }
 
         /// <summary>
