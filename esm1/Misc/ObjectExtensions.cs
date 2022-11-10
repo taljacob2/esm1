@@ -35,6 +35,12 @@ namespace esm1.Misc
                 }
 
                 i++;
+
+                if (i < obj.GetType().GetProperties().Length)
+                {
+                    stringBuilder.Append(',');
+                }
+
                 indentationLevel--;
             }
 
