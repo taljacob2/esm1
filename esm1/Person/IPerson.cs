@@ -1,12 +1,11 @@
-﻿using System;
-namespace esm1.Person
+﻿namespace esm1.Person
 {
     public interface IPerson : IComparable<IPerson>
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public int Id { get; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        public DateTime DateOfBirth { get; }
 
         /// <summary>
         /// Height, provided in centimeter units.
@@ -14,6 +13,6 @@ namespace esm1.Person
         /// For example 170, 165, 150, ...
         /// </example>
         /// </summary>
-        public int Height { get; set; }
+        public int Height { get; }
     }
 }
