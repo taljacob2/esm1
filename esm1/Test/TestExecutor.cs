@@ -169,14 +169,23 @@ namespace esm1.Test
                 Height = 167
             };
 
-            // Same as Test4 so far.
-
             PersonCollection personCollection = new()
             {
                 person,
                 person2,
                 person3
             };
+
+            return personCollection;
+        }
+
+        public static PersonCollection Test7()
+        {
+            PersonCollection personCollection = Test6();
+
+            IPerson personRemoved = personCollection.Remove();
+            Console.WriteLine("personRemoved:");
+            Console.WriteLine(personRemoved);
 
             return personCollection;
         }
