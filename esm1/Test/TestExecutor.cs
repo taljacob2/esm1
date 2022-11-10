@@ -189,5 +189,94 @@ namespace esm1.Test
 
             return personCollection;
         }
+
+        public static PersonCollection Test8()
+        {
+            IPerson person = new PersonImpl()
+            {
+                Id = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 179
+            };
+
+            IPerson person2 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Tal",
+                LastName = "Jacob",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 177
+            };
+
+            IPerson person3 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Richard",
+                LastName = "Roe",
+                DateOfBirth = new DateTime(1990, 11, 26),
+                Height = 167
+            };
+
+            PersonCollection personCollection = new()
+            {
+                person,
+                person2,
+            };
+
+            personCollection.Attach(person);
+            personCollection.Attach(person2);
+            personCollection.Attach(person3);
+
+            personCollection.Remove();
+            personCollection.Add(person3);
+
+            return personCollection;
+        }
+
+        public static PersonCollection Test9()
+        {
+            IPerson person = new PersonImpl()
+            {
+                Id = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 179
+            };
+
+            IPerson person2 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Tal",
+                LastName = "Jacob",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 177
+            };
+
+            IPerson person3 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Richard",
+                LastName = "Roe",
+                DateOfBirth = new DateTime(1990, 11, 26),
+                Height = 167
+            };
+
+            PersonCollection personCollection = new();
+
+            personCollection.Attach(person);
+            personCollection.Attach(person2);
+
+            personCollection.Add(person);
+            personCollection.Add(person2);
+            personCollection.Add(person3);
+
+            personCollection.Remove();
+            personCollection.Add(person3);
+
+            return personCollection;
+        }
     }
 }

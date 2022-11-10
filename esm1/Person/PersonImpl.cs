@@ -1,4 +1,5 @@
 ﻿using esm1.Misc;
+using esm1.Misc.Observer;
 
 namespace esm1.Person
 {
@@ -28,6 +29,21 @@ namespace esm1.Person
         public override string ToString()
         {
             return this.ToStringExtension();
+        }
+
+        public void Update(ISubject subject)
+        {
+            PersonCollection personCollection;
+            if ((personCollection = (PersonCollection) subject) != null)
+            {
+                Console.WriteLine($"{this} was notified that:" +
+                    $" {personCollection.LastTouchedObject}" +
+                    $" was {personCollection.LastStatus}.");
+            }
+            else
+            {
+                Console.WriteLine($"{this} was notified.");
+            }
         }
     }
 }

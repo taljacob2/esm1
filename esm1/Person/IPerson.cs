@@ -1,6 +1,8 @@
-﻿namespace esm1.Person
+﻿using esm1.Misc.Observer;
+
+namespace esm1.Person
 {
-    public interface IPerson : IComparable<IPerson>
+    public interface IPerson : IComparable<IPerson>, IObserver
     {
         public int Id { get; }
         public string FirstName { get; }
