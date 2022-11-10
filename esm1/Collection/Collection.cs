@@ -17,11 +17,18 @@ namespace esm1.Collection
         /// </summary>
         private readonly List<IObserver> _observerMenuItems = new();
 
+        /// <summary>
+        /// The last object that was interacting with this collection.
+        /// It may have been added to the collection, or removed from it.
+        /// </summary>
         public T LastTouchedObject { get; private set; }
 
         public enum Status { Added, Removed }
 
-        public Status LastStatus { get; private set; }
+        /// <summary>
+        /// Stores the status of <see cref="LastTouchedObject"/>.
+        /// </summary>
+        public Status LastTouchedObjectStatus { get; private set; }
 
         /// <summary>
         /// Adds the object which is given as input.
@@ -58,7 +65,7 @@ namespace esm1.Collection
             }
 
             // Update the properties' data and publish to subscribers.
-            LastStatus = Status.Added;
+            LastTouchedObjectStatus = Status.Added;
             LastTouchedObject = obj;
             Publish();
         }
@@ -77,7 +84,7 @@ namespace esm1.Collection
             _list.RemoveAt(_list.Count - 1);
 
             // Update the properties' data and publish to subscribers.
-            LastStatus = Status.Removed;
+            LastTouchedObjectStatus = Status.Removed;
             LastTouchedObject = lastItem;
             Publish();
 

@@ -38,7 +38,7 @@ namespace esm1.Person
             {
                 Console.WriteLine($"{this} was notified that:" +
                     $" {personCollection.LastTouchedObject}" +
-                    $" was {personCollection.LastStatus}.");
+                    $" was {personCollection.LastTouchedObjectStatus}.");
             }
             else
             {
