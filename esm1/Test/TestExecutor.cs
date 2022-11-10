@@ -1,9 +1,4 @@
 ﻿using esm1.Person;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace esm1.Test
 {
@@ -136,9 +131,52 @@ namespace esm1.Test
 
             // Same as Test4 so far.
 
-            PersonCollection personCollection = new();
-            personCollection.Add(person);
-            personCollection.Add(person2);
+            PersonCollection personCollection = new()
+            {
+                person,
+                person2
+            };
+
+            return personCollection;
+        }
+
+        public static PersonCollection Test6()
+        {
+            IPerson person = new PersonImpl()
+            {
+                Id = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 179
+            };
+
+            IPerson person2 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Tal",
+                LastName = "Jacob",
+                DateOfBirth = new DateTime(1990, 12, 26),
+                Height = 177
+            };
+
+            IPerson person3 = new PersonImpl()
+            {
+                Id = 2,
+                FirstName = "Richard",
+                LastName = "Roe",
+                DateOfBirth = new DateTime(1990, 11, 26),
+                Height = 167
+            };
+
+            // Same as Test4 so far.
+
+            PersonCollection personCollection = new()
+            {
+                person,
+                person2,
+                person3
+            };
 
             return personCollection;
         }
