@@ -13,28 +13,31 @@ namespace esm1.Collection
 
         /// <summary>
         /// Adds the object which is given as input.
+        /// The collection sorts itself when adding an object.
         /// This operation may be performed in WC time complexity of O(n).
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">The object to add to the collection.</param>
         public void Add(T obj)
         {
-            if (_list.Count == 0)
+            for (int i = 0; i < _list.Count; i++)
             {
-                _list.Add(obj);
-                return;
+                T item = _list[i];
+                if (item.CompareTo(obj) <= 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    _list.Insert(i, obj);
+                    return;
+                }
             }
 
-            int comparisonResult = _list[0].CompareTo(obj);
-            if (comparisonResult <= 0)
-            {
-                _list.Add(obj);
-                return;
-            }
-            else
-            {
-                _list.Add(_list[0]);
-                _list[0] = obj;
-            }
+            /*
+             * If the `obj` wasn't added yet, it means it should be placed as
+             * the last item.
+             */
+            _list.Add(obj);
         }
 
         /// <summary>
